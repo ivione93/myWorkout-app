@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/name"
             android:layout_marginTop="4dp"
-            android:hint="Bithdate"
+            android:hint="Birthdate"
             app:layout_constraintStart_toStartOf="@+id/name"
             app:layout_constraintTop_toBottomOf="@+id/name"
             tools:text="18/06/1993" />

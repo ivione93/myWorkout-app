@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<Athlete> listAthletes;
+    public static ArrayList<Athlete> listAthletes = new ArrayList<>();
     RecyclerView rvAthletes;
 
     @Override
@@ -21,18 +21,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
-        listAthletes = new ArrayList<>();
         rvAthletes = findViewById(R.id.recycler_view);
         rvAthletes.setLayoutManager(new LinearLayoutManager(this));
 
-        addListAthletes();
+        //addListAthletes();
+
+        if(getIntent().getSerializableExtra("license") != null) {
+            String license = (String) getIntent().getSerializableExtra("license");
+            String name = (String) getIntent().getSerializableExtra("name");
+            String surname = (String) getIntent().getSerializableExtra("surname");
+            String birthdate = (String) getIntent().getSerializableExtra("birthdate");
+            Athlete athlete = new Athlete(license.toString(), name.toString(), surname.toString(), birthdate.toString());
+            addListAthletes(athlete);
+        }
 
         AdapterAthlete adapter = new AdapterAthlete(listAthletes);
         rvAthletes.setAdapter(adapter);
     }
 
-    private void addListAthletes() {
-        listAthletes.add(new Athlete("M1599","Iván", "García Gómez", "18/06/1993"));
+    public void addListAthletes(Athlete athlete) {
+        listAthletes.add(athlete);
     }
 
     public void addAthlete(View view) {
