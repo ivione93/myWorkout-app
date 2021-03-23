@@ -24,9 +24,9 @@
 
     <!-- Configuración específica para light-->
     <style name="Theme.MyWorkout.LightDark" parent="Theme.MyWorkout">
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_900</item>
-        <item name="colorSecondary">@color/red_500</item>
+        <item name="colorPrimary">#00BCD4</item>
+        <item name="colorPrimaryVariant">#2196F3</item>
+        <item name="colorSecondary">#3F51B5</item>
     </style>
 
 </resources>
