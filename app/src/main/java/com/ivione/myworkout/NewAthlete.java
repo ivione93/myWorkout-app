@@ -21,7 +21,7 @@ public class NewAthlete extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_athlete);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
 
         licenseText = findViewById(R.id.licenseText);
         nameText = findViewById(R.id.nameText);

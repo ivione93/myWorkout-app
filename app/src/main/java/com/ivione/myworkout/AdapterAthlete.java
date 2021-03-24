@@ -21,7 +21,7 @@ public class AdapterAthlete extends RecyclerView.Adapter<AdapterAthlete.ViewHold
     @NonNull
     @Override
     public ViewHolderAthletes onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.athlete_item, null, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.athlete_item, parent, false);
         return new ViewHolderAthletes(view);
     }
 
