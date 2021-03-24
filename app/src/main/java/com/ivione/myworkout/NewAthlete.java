@@ -6,10 +6,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import com.google.android.material.textfield.TextInputLayout;
-
-import java.io.Serializable;
 
 public class NewAthlete extends AppCompatActivity {
 
@@ -21,6 +20,9 @@ public class NewAthlete extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_athlete);
+
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "database-name").fallbackToDestructiveMigration().allowMainThreadQueries().build();
         //getSupportActionBar().hide();
 
         licenseText = findViewById(R.id.licenseText);
@@ -29,11 +31,13 @@ public class NewAthlete extends AppCompatActivity {
         birthdateText = findViewById(R.id.birthdateText);
         btnSave = findViewById(R.id.saveButton);
         btnSave.setOnClickListener(view -> {
+            Athlete athlete = new Athlete(licenseText.getEditText().getText().toString(),
+                    nameText.getEditText().getText().toString(),
+                    surnameText.getEditText().getText().toString(),
+                    birthdateText.getText().toString());
+            db.athleteDao().insert(athlete);
+            
             Intent intent = new Intent(this, MainActivity.class);
-            intent.putExtra("license", licenseText.getEditText().getText().toString());
-            intent.putExtra("name", nameText.getEditText().getText().toString());
-            intent.putExtra("surname", surnameText.getEditText().getText().toString());
-            intent.putExtra("birthdate", birthdateText.getText().toString());
             startActivity(intent);
         });
     }
