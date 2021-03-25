@@ -14,9 +14,11 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static ArrayList<Athlete> listAthletes = new ArrayList<>();
+    public static List<Athlete> listAthletes = new ArrayList<>();
     public static List<Athlete> listDB = new ArrayList<>();
     RecyclerView rvAthletes;
+
+    AdapterAthlete adapter = new AdapterAthlete(listAthletes);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +33,8 @@ public class MainActivity extends AppCompatActivity {
         rvAthletes.setLayoutManager(new LinearLayoutManager(this));
 
         listAthletes.clear();
-        listDB = db.athleteDao().getAthletes();
-        listAthletes.addAll(listDB);
+        listAthletes.addAll(db.athleteDao().getAthletes());
 
-        AdapterAthlete adapter = new AdapterAthlete(listAthletes);
         rvAthletes.setAdapter(adapter);
     }
 

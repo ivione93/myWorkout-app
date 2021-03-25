@@ -65,6 +65,20 @@
             app:layout_constraintTop_toTopOf="@+id/birthdate"
             tools:text="M1599" />
 
+        <ImageButton
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="false"
+            android:background="@null"
+            android:tint="@color/white_50"
+            app:layout_constraintBottom_toTopOf="@+id/license"
+            app:layout_constraintEnd_toEndOf="@+id/license"
+            app:layout_constraintStart_toStartOf="@+id/license"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_delete_forever_24"
+            tools:ignore="MissingConstraints,VectorDrawableCompat" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
