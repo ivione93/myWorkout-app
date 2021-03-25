@@ -66,12 +66,11 @@
             tools:text="M1599" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/btnDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="false"
             android:background="@null"
-            android:onClick="deleteAthlete"
             android:tint="@color/white_50"
             app:layout_constraintBottom_toTopOf="@+id/license"
             app:layout_constraintEnd_toEndOf="@+id/license"
