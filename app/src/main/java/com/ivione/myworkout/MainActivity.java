@@ -15,7 +15,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     public static List<Athlete> listAthletes = new ArrayList<>();
-    public static List<Athlete> listDB = new ArrayList<>();
     RecyclerView rvAthletes;
 
     AdapterAthlete adapter = new AdapterAthlete(listAthletes);
@@ -27,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
         AppDatabase db = Room.databaseBuilder(getApplicationContext(),
                 AppDatabase.class, "database-name").fallbackToDestructiveMigration().allowMainThreadQueries().build();
-        //getSupportActionBar().hide();
 
         rvAthletes = findViewById(R.id.recycler_view);
         rvAthletes.setLayoutManager(new LinearLayoutManager(this));
