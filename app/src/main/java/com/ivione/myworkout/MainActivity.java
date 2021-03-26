@@ -43,9 +43,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void cancel() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
 }
