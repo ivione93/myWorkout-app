@@ -22,13 +22,9 @@ public class NewCompetition extends AppCompatActivity {
 
         cancelButton = findViewById(R.id.cancelButton);
         cancelButton.setOnClickListener(v -> {
-            cancel();
+            finish();
         });
 
-    }
-
-    public void cancel() {
-        finish();
     }
 
 }

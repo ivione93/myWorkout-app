@@ -15,7 +15,7 @@ public class NewAthlete extends AppCompatActivity {
 
     TextInputLayout licenseText, nameText, surnameText;
     EditText birthdateText;
-    Button btnSave;
+    Button btnSave, btnCancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,7 @@ public class NewAthlete extends AppCompatActivity {
         surnameText = findViewById(R.id.trackText);
         birthdateText = findViewById(R.id.dateText);
         btnSave = findViewById(R.id.saveButton);
+        btnCancel = findViewById(R.id.cancelButton);
 
         btnSave.setOnClickListener(view -> {
             String license = licenseText.getEditText().getText().toString();
@@ -58,6 +59,10 @@ public class NewAthlete extends AppCompatActivity {
                 toast.show();
             }
         });
+
+        btnCancel.setOnClickListener(v -> {
+            finish();
+        });
     }
 
     private boolean validateNewAthlete(String license, String name, String surname, String birthdate) {
@@ -75,5 +80,9 @@ public class NewAthlete extends AppCompatActivity {
             isValid = false;
         }
         return isValid;
+    }
+
+    public void cancel() {
+        finish();
     }
 }
