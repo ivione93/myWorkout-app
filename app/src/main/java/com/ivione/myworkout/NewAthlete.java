@@ -28,8 +28,8 @@ public class NewAthlete extends AppCompatActivity {
 
         licenseText = findViewById(R.id.licenseText);
         nameText = findViewById(R.id.nameText);
-        surnameText = findViewById(R.id.surnameText);
-        birthdateText = findViewById(R.id.birthdateText);
+        surnameText = findViewById(R.id.trackText);
+        birthdateText = findViewById(R.id.dateText);
         btnSave = findViewById(R.id.saveButton);
 
         btnSave.setOnClickListener(view -> {

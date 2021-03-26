@@ -1,5 +1,6 @@
 package com.ivione.myworkout;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
@@ -40,6 +42,10 @@ public class AdapterAthlete extends RecyclerView.Adapter<AdapterAthlete.ViewHold
             listAthletes.remove(position);
             notifyItemRemoved(position);
         });
+        holder.btnAddCompetition.setOnClickListener(v -> {
+            Intent intent = new Intent(holder.itemView.getContext(), NewCompetition.class);
+            holder.itemView.getContext().startActivity(intent);
+        });
     }
 
     @Override
@@ -49,7 +55,7 @@ public class AdapterAthlete extends RecyclerView.Adapter<AdapterAthlete.ViewHold
 
     public class ViewHolderAthletes extends RecyclerView.ViewHolder {
         TextView name, birthdate, license;
-        ImageButton btnDelete;
+        ImageButton btnDelete, btnAddCompetition;
 
         public ViewHolderAthletes(@NonNull View itemView) {
             super(itemView);
@@ -57,6 +63,7 @@ public class AdapterAthlete extends RecyclerView.Adapter<AdapterAthlete.ViewHold
             birthdate = itemView.findViewById(R.id.birthdate);
             license = itemView.findViewById(R.id.license);
             btnDelete = itemView.findViewById(R.id.btnDelete);
+            btnAddCompetition = itemView.findViewById(R.id.btnAddCompetition);
         }
     }
 }
