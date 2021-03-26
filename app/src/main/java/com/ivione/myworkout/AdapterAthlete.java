@@ -44,6 +44,7 @@ public class AdapterAthlete extends RecyclerView.Adapter<AdapterAthlete.ViewHold
         });
         holder.btnAddCompetition.setOnClickListener(v -> {
             Intent intent = new Intent(holder.itemView.getContext(), NewCompetition.class);
+            intent.putExtra("license", listAthletes.get(position).license);
             holder.itemView.getContext().startActivity(intent);
         });
     }

@@ -24,7 +24,6 @@ public class NewAthlete extends AppCompatActivity {
 
         AppDatabase db = Room.databaseBuilder(getApplicationContext(),
                 AppDatabase.class, "database-name").fallbackToDestructiveMigration().allowMainThreadQueries().build();
-        //getSupportActionBar().hide();
 
         licenseText = findViewById(R.id.licenseText);
         nameText = findViewById(R.id.nameText);

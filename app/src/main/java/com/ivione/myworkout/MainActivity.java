@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
         AppDatabase db = Room.databaseBuilder(getApplicationContext(),
                 AppDatabase.class, "database-name").fallbackToDestructiveMigration().allowMainThreadQueries().build();
-        //getSupportActionBar().hide();
 
         rvAthletes = findViewById(R.id.recycler_view);
         rvAthletes.setLayoutManager(new LinearLayoutManager(this));

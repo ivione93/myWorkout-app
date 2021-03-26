@@ -31,8 +31,7 @@ public class Competition {
     @ColumnInfo(name = "result")
     public String result;
 
-    public Competition(@NonNull Long id, String license, String place, String name, String date, String track, String result) {
-        this.id = id;
+    public Competition(String license, String place, String name, String date, String track, String result) {
         this.license = license;
         this.place = place;
         this.name = name;
