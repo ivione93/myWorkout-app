@@ -16,6 +16,6 @@ public interface CompetitionDao {
     @Insert
     void insert(Competition competition);
 
-    @Query("DELETE FROM Competition")
-    void delete();
+    @Query("DELETE FROM Competition WHERE license = :license")
+    void deleteCompetitionByLicense(String license);
 }

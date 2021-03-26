@@ -38,6 +38,7 @@ public class AdapterAthlete extends RecyclerView.Adapter<AdapterAthlete.ViewHold
         holder.birthdate.setText(listAthletes.get(position).birthdate);
         holder.license.setText(listAthletes.get(position).license);
         holder.btnDelete.setOnClickListener(v -> {
+            db.competitionDao().deleteCompetitionByLicense(listAthletes.get(position).license);
             db.athleteDao().delete(listAthletes.get(position));
             listAthletes.remove(position);
             notifyItemRemoved(position);

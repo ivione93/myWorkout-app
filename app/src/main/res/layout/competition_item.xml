@@ -7,7 +7,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardBackgroundColor="#1BFF9800"
-    app:cardUseCompatPadding="true"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
@@ -23,11 +22,12 @@
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
+            android:maxLines="1"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:text="Competicion"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Campeonato de Madrid absoluto" />
 
         <TextView
             android:id="@+id/placeText"
@@ -35,9 +35,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:textStyle="italic"
-            android:text="Lugar"
             app:layout_constraintStart_toStartOf="@+id/competitionNameText"
-            app:layout_constraintTop_toBottomOf="@+id/competitionNameText" />
+            app:layout_constraintTop_toBottomOf="@+id/competitionNameText"
+            tools:text="Tres Cantos" />
 
         <TextView
             android:id="@+id/trackText"
@@ -45,17 +45,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
-            android:text="Prueba"
             android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/placeText"
-            app:layout_constraintTop_toBottomOf="@+id/placeText" />
+            app:layout_constraintTop_toBottomOf="@+id/placeText"
+            tools:text="400mv" />
 
         <TextView
             android:id="@+id/resultText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Marca"
+            android:text="55.95"
             android:textSize="18dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/trackText"
@@ -70,12 +70,12 @@
             android:layout_marginLeft="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:text="Fecha"
             app:layout_constraintBottom_toBottomOf="@+id/competitionNameText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.95"
             app:layout_constraintStart_toEndOf="@+id/competitionNameText"
-            app:layout_constraintTop_toTopOf="@+id/competitionNameText" />
+            app:layout_constraintTop_toTopOf="@+id/competitionNameText"
+            tools:text="18/06/2020" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
