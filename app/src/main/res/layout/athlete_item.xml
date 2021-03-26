@@ -74,7 +74,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_directions_run_24"
+            app:srcCompat="@drawable/ic_baseline_run_circle_24"
             tools:ignore="MissingConstraints,VectorDrawableCompat" />
 
         <ImageButton

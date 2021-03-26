@@ -1,6 +1,7 @@
 package com.ivione.myworkout;
 
 import android.os.Bundle;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,6 +17,7 @@ public class ListCompetitions extends AppCompatActivity {
 
     RecyclerView rvCompetitions;
     AdapterCompetition adapter = new AdapterCompetition(listCompetitions);
+    ImageButton btnBack;
 
     String license;
 
@@ -33,6 +35,11 @@ public class ListCompetitions extends AppCompatActivity {
         license = getIntent().getStringExtra("license");
         listCompetitions.clear();
         listCompetitions.addAll(db.competitionDao().getCompetitionsByLicense(license));
+
+        btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(v -> {
+            finish();
+        });
 
         rvCompetitions.setAdapter(adapter);
     }

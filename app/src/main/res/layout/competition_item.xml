@@ -6,7 +6,7 @@
     android:id="@+id/cvCompetitions"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="#1BFF9800"
+    app:cardBackgroundColor="#0DFF9800"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
