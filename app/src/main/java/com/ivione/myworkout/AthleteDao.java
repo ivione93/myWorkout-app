@@ -13,6 +13,9 @@ public interface AthleteDao {
     @Query("SELECT * FROM athlete")
     List<Athlete> getAthletes();
 
+    @Query("SELECT * FROM athlete WHERE license = :license")
+    Athlete getAthleteByLicense(String license);
+
     @Insert
     void insert(Athlete athlete);
 
