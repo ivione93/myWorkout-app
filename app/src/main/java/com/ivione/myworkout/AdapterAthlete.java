@@ -47,6 +47,13 @@ public class AdapterAthlete extends RecyclerView.Adapter<AdapterAthlete.ViewHold
             intent.putExtra("license", listAthletes.get(position).license);
             holder.itemView.getContext().startActivity(intent);
         });
+
+        holder.itemView.setOnLongClickListener(v -> {
+            Intent intent = new Intent(holder.itemView.getContext(), ListCompetitions.class);
+            intent.putExtra("license", listAthletes.get(position).license);
+            holder.itemView.getContext().startActivity(intent);
+            return false;
+        });
     }
 
     @Override

@@ -15,7 +15,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     public static List<Athlete> listAthletes = new ArrayList<>();
-    public static List<Athlete> listDB = new ArrayList<>();
     RecyclerView rvAthletes;
 
     AdapterAthlete adapter = new AdapterAthlete(listAthletes);

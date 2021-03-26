@@ -51,9 +51,9 @@ public class NewCompetition extends AppCompatActivity {
                 Competition competition = new Competition(license,
                         placeText.getEditText().getText().toString(),
                         competitionNameText.getEditText().getText().toString(),
+                        dateText.getText().toString(),
                         trackText.getEditText().getText().toString(),
-                        resultText.getEditText().getText().toString(),
-                        dateText.getText().toString());
+                        resultText.getEditText().getText().toString());
                 db.competitionDao().insert(competition);
 
                 Intent intent = new Intent(this, MainActivity.class);

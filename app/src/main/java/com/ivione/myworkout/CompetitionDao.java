@@ -1,6 +1,7 @@
 package com.ivione.myworkout;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -14,4 +15,7 @@ public interface CompetitionDao {
 
     @Insert
     void insert(Competition competition);
+
+    @Query("DELETE FROM Competition")
+    void delete();
 }
