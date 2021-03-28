@@ -8,90 +8,109 @@
     android:layout_height="wrap_content"
     app:cardBackgroundColor="#3F51B5"
     app:cardUseCompatPadding="true"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    app:cardCornerRadius="4dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:id="@+id/linearLayoutCardContent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:hint="Name"
-            android:textColor="@color/white_50"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Iván García Gómez" />
+            android:id="@+id/unlinearl"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
-        <TextView
-            android:id="@+id/birthdate"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:hint="Name"
+                android:textColor="@color/white_50"
+                android:textSize="20sp"
+                tools:text="Iván García Gómez" />
+            <ImageView
+                android:id="@+id/imageViewExpand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:contentDescription="Details"
+                android:src="@drawable/more" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutDetails"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/name"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="8dp"
-            android:hint="Birthdate"
-            android:textColor="@color/white_50"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/name"
-            app:layout_constraintTop_toBottomOf="@+id/name"
-            tools:text="18/06/1993" />
+            android:orientation="vertical"
+            android:visibility="gone">
 
-        <TextView
-            android:id="@+id/license"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:hint="License"
-            android:textColor="@color/white_50"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/birthdate"
-            app:layout_constraintEnd_toStartOf="@+id/btnAddCompetition"
-            app:layout_constraintTop_toTopOf="@+id/birthdate"
-            app:layout_constraintVertical_bias="0.0"
-            tools:text="M1599" />
+            <TextView
+                android:id="@+id/license"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="License"
+                android:textColor="@color/white_50"
+                android:textStyle="bold"
+                tools:text="M1599"
+                android:paddingLeft="8dp" />
 
-        <ImageButton
-            android:id="@+id/btnAddCompetition"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@null"
-            android:scaleX="2"
-            android:scaleY="2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_run_circle_24"
-            tools:ignore="MissingConstraints,VectorDrawableCompat" />
+            <TextView
+                android:id="@+id/birthdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Birthdate"
+                android:textColor="@color/white_50"
+                tools:text="18/06/1993"
+                android:paddingLeft="8dp"/>
 
-        <ImageButton
-            android:id="@+id/btnDelete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="false"
-            android:background="@null"
-            android:tint="@color/white_50"
-            app:layout_constraintBottom_toTopOf="@+id/license"
-            app:layout_constraintEnd_toEndOf="@+id/license"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/license"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_delete_forever_24"
-            tools:ignore="MissingConstraints,VectorDrawableCompat" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:background="#2196F3"
+                android:orientation="horizontal">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageButton
+                    android:id="@+id/btnAddCompetition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:tint="@color/white_50"
+                    android:gravity="center_vertical"
+                    android:src="@drawable/ic_baseline_add_24" />
 
+                <ImageButton
+                    android:id="@+id/btnShowCompetitions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:src="@drawable/ic_baseline_run_circle_24" />
+
+                <ImageButton
+                    android:id="@+id/btnDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:tint="@color/white_50"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:src="@drawable/ic_baseline_delete_forever_24" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>
