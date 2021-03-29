@@ -6,64 +6,63 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/photoProfile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        android:src="@drawable/ic_baseline_person_24"/>
 
-        <ImageView
-            android:id="@+id/photoProfile"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="#F60"
-            android:contentDescription="" />
+    <TextView
+        android:id="@+id/nameProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnSignOut"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/photoProfile"
+        app:layout_constraintTop_toTopOf="@+id/photoProfile"
+        tools:text="Name" />
 
-        <TextView
-            android:id="@+id/nameProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            tools:text="Name" />
+    <TextView
+        android:id="@+id/emailProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/nameProfile"
+        app:layout_constraintTop_toBottomOf="@+id/nameProfile"
+        tools:text="eMail" />
 
-        <TextView
-            android:id="@+id/emailProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="eMail" />
+    <TextView
+        android:id="@+id/idProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/emailProfile"
+        app:layout_constraintTop_toBottomOf="@+id/emailProfile"
+        tools:text="id" />
 
-        <TextView
-            android:id="@+id/idProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="id" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/cardview_light_background"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <Button
-            android:id="@+id/btnSignOut"
-            android:text="Salir"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:gravity="center_vertical" />
-
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/btnSignOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@android:drawable/ic_lock_power_off"
+        android:background="@null"
+        android:tint="@color/red_500"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

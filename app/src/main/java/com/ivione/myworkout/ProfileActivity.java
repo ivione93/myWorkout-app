@@ -2,8 +2,8 @@ package com.ivione.myworkout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.util.Log;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,11 +15,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.ivione.myworkout.ui.login.LoginActivity;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ProfileActivity extends AppCompatActivity {
 
-    ImageView photoProfile;
+    CircleImageView photoProfile;
     TextView nameProfile, emailProfile, idProfile;
-    Button btnSignOut;
+    ImageButton btnSignOut;
 
     GoogleSignInClient mGoogleSignInClient;
     GoogleSignInOptions gso;
@@ -53,7 +55,11 @@ public class ProfileActivity extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         if(account != null) {
-            Glide.with(this).load(account.getPhotoUrl()).into(photoProfile);
+            if (account.getPhotoUrl() != null) {
+                Glide.with(this).load(account.getPhotoUrl()).into(photoProfile);
+            } else {
+
+            }
             nameProfile.setText(account.getDisplayName());
             emailProfile.setText(account.getEmail());
             idProfile.setText(account.getId());
