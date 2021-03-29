@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ivione.myworkout">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/myworkout"
@@ -10,17 +12,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyWorkout.LightDark"
-        android:usesCleartextTraffic="true" >
-        <activity android:name=".MainActivity">
+        android:usesCleartextTraffic="true">
+        <activity android:name=".ProfileActivity"></activity>
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:label="@string/title_activity_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewAthlete" ></activity>
-        <activity android:name=".NewCompetition" ></activity>
-        <activity android:name=".ListCompetitions" ></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".NewAthlete" />
+        <activity android:name=".NewCompetition" />
+        <activity android:name=".ListCompetitions" />
     </application>
 
 </manifest>
