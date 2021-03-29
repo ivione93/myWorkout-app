@@ -3,6 +3,7 @@ package com.ivione.myworkout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -22,6 +23,7 @@ public class ProfileActivity extends AppCompatActivity {
     CircleImageView photoProfile;
     TextView nameProfile, emailProfile, idProfile;
     ImageButton btnSignOut;
+    Button btnGoToCompetitions, getBtnGoToTrainings;
 
     GoogleSignInClient mGoogleSignInClient;
     GoogleSignInOptions gso;
@@ -36,8 +38,15 @@ public class ProfileActivity extends AppCompatActivity {
         emailProfile = findViewById(R.id.emailProfile);
         idProfile = findViewById(R.id.idProfile);
         btnSignOut = findViewById(R.id.btnSignOut);
+        btnGoToCompetitions = findViewById(R.id.btnGoToCompetitions);
+        getBtnGoToTrainings = findViewById(R.id.btnGoToTrainings);
 
         btnSignOut.setOnClickListener(v -> signOut());
+
+        btnGoToCompetitions.setOnClickListener(v -> {
+            Intent intent = new Intent(this, ListCompetitions.class);
+            startActivity(intent);
+        });
     }
 
     @Override

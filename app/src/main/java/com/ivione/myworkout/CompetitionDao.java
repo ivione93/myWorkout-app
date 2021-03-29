@@ -10,6 +10,9 @@ import java.util.List;
 @Dao
 public interface CompetitionDao {
 
+    @Query("SELECT * FROM competition")
+    List<Competition> getCompetitions();
+
     @Query("SELECT * FROM competition WHERE license = :license")
     List<Competition> getCompetitionsByLicense(String license);
 

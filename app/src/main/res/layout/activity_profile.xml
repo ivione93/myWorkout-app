@@ -65,4 +65,29 @@
         android:background="@null"
         android:tint="@color/red_500"/>
 
+    <Button
+        android:id="@+id/btnGoToCompetitions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Competiciones"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photoProfile"
+        app:layout_constraintVertical_bias="0.3"
+        android:textSize="24sp"
+        android:padding="20dp" />
+
+    <Button
+        android:id="@+id/btnGoToTrainings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Entrenamientos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGoToCompetitions"
+        android:textSize="24sp"
+        android:padding="20dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
