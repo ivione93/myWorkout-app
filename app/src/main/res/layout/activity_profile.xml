@@ -13,7 +13,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        app:civ_border_color="#FF000000"
+        app:civ_border_color="#606060"
         app:civ_border_width="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -44,26 +44,38 @@
         tools:text="eMail" />
 
     <TextView
-        android:id="@+id/idProfile"
+        android:id="@+id/licenseProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="@+id/emailProfile"
         app:layout_constraintTop_toBottomOf="@+id/emailProfile"
-        tools:text="id" />
+        android:textStyle="bold"
+        tools:text="license" />
+
+    <TextView
+        android:id="@+id/birthProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/licenseProfile"
+        app:layout_constraintTop_toBottomOf="@+id/emailProfile"
+        tools:text="birthdate" />
 
     <ImageButton
         android:id="@+id/btnSignOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@android:drawable/ic_lock_power_off"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:background="@null"
-        android:tint="@color/red_500"/>
+        android:src="@android:drawable/ic_lock_power_off"
+        android:tint="@color/red_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnGoToCompetitions"

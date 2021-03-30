@@ -3,6 +3,7 @@ package com.ivione.myworkout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static List<Athlete> listAthletes = new ArrayList<>();
     RecyclerView rvAthletes;
+    ImageButton btnBack;
 
     AdapterAthlete adapter = new AdapterAthlete(listAthletes);
 
@@ -34,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
         listAthletes.addAll(db.athleteDao().getAthletes());
 
         rvAthletes.setAdapter(adapter);
+
+        btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(v -> {
+            finish();
+        });
     }
 
     public void addAthlete(View view) {

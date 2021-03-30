@@ -22,6 +22,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.SignInButton;
+import com.ivione.myworkout.NewAthlete;
 import com.ivione.myworkout.ProfileActivity;
 import com.ivione.myworkout.R;
 
@@ -56,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // Set the dimensions of the sign-in button.
         SignInButton signInButton = findViewById(R.id.sign_in_button);
-        signInButton.setSize(SignInButton.SIZE_STANDARD);
+        signInButton.setSize(SignInButton.SIZE_WIDE);
 
         signInButton.setOnClickListener(v -> signIn());
 
@@ -161,7 +162,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void updateUI() {
-        Intent mainIntent = new Intent(this, ProfileActivity.class);
+        Intent mainIntent = new Intent(this, NewAthlete.class);
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(mainIntent);
     }
