@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:app2="http://schema.android.com/apk/res/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    tools:context=".ProfileActivity"
+    tools:ignore="NamespaceTypo">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/photoProfile"
@@ -13,7 +15,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        app:civ_border_color="#FF000000"
+        app:civ_border_color="#606060"
         app:civ_border_width="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -44,50 +46,50 @@
         tools:text="eMail" />
 
     <TextView
-        android:id="@+id/idProfile"
+        android:id="@+id/licenseProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="@+id/emailProfile"
         app:layout_constraintTop_toBottomOf="@+id/emailProfile"
-        tools:text="id" />
+        android:textStyle="bold"
+        tools:text="license" />
+
+    <TextView
+        android:id="@+id/birthProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/licenseProfile"
+        app:layout_constraintTop_toBottomOf="@+id/emailProfile"
+        tools:text="birthdate" />
 
     <ImageButton
         android:id="@+id/btnSignOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@android:drawable/ic_lock_power_off"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:background="@null"
-        android:tint="@color/red_500"/>
+        android:src="@android:drawable/ic_lock_power_off"
+        android:tint="@color/red_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnGoToCompetitions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Competiciones"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation_menu"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="start"
+        app:menu="@menu/my_navigation_items"
+        android:background="@color/cardview_dark_background"
+        app:itemTextColor="@color/white_50"
+        app:itemIconTint="@color/white_50"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photoProfile"
-        app:layout_constraintVertical_bias="0.3"
-        android:textSize="24sp"
-        android:padding="20dp" />
-
-    <Button
-        android:id="@+id/btnGoToTrainings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Entrenamientos"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGoToCompetitions"
-        android:textSize="24sp"
-        android:padding="20dp" />
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

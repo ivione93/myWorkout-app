@@ -9,6 +9,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class NewAthlete extends AppCompatActivity {
@@ -16,6 +21,12 @@ public class NewAthlete extends AppCompatActivity {
     TextInputLayout licenseText, nameText, surnameText;
     EditText birthdateText;
     Button btnSave, btnCancel;
+
+    GoogleSignInClient mGoogleSignInClient;
+    GoogleSignInOptions gso;
+
+    String googleId;
+    String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +58,13 @@ public class NewAthlete extends AppCompatActivity {
                     Athlete athlete = new Athlete(licenseText.getEditText().getText().toString(),
                             nameText.getEditText().getText().toString(),
                             surnameText.getEditText().getText().toString(),
-                            birthdateText.getText().toString());
+                            birthdateText.getText().toString(),
+                            email,
+                            googleId);
                     db.athleteDao().insert(athlete);
 
-                    Intent intent = new Intent(this, MainActivity.class);
+                    Intent intent = new Intent(this, ProfileActivity.class);
+                    intent.putExtra("license", licenseText.getEditText().getText().toString());
                     startActivity(intent);
                 }
             } else {
@@ -62,6 +76,38 @@ public class NewAthlete extends AppCompatActivity {
         btnCancel.setOnClickListener(v -> {
             finish();
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "database-name").fallbackToDestructiveMigration().allowMainThreadQueries().build();
+
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+
+        Athlete athlete = db.athleteDao().getAthleteByGoogleId(account.getId());
+        if (athlete != null) {
+            Intent intent = new Intent(this, ProfileActivity.class);
+            intent.putExtra("license", athlete.license);
+            startActivity(intent);
+        } else {
+            // Configure sign-in to request the user's ID, email address, and basic
+            // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
+            gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestEmail()
+                    .build();
+
+            // Build a GoogleSignInClient with the options specified by gso.
+            mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+            if(account != null) {
+                email = account.getEmail();
+                googleId = account.getId();
+            }
+        }
+
     }
 
     private boolean validateNewAthlete(String license, String name, String surname, String birthdate) {
@@ -79,9 +125,5 @@ public class NewAthlete extends AppCompatActivity {
             isValid = false;
         }
         return isValid;
-    }
-
-    public void cancel() {
-        finish();
     }
 }
