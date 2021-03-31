@@ -35,11 +35,7 @@ public class ListCompetitions extends AppCompatActivity {
 
         license = getIntent().getStringExtra("license");
         listCompetitions.clear();
-        if (license != null) {
-            listCompetitions.addAll(db.competitionDao().getCompetitionsByLicense(license));
-        } else {
-            listCompetitions.addAll(db.competitionDao().getCompetitions());
-        }
+        listCompetitions.addAll(db.competitionDao().getCompetitionsByLicense(license));
 
         btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> {
