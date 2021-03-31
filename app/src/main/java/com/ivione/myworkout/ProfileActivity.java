@@ -122,7 +122,7 @@ public class ProfileActivity extends AppCompatActivity {
         } else {
             last_competition_name.setText(last_competition.get(0).name);
             last_competition_place.setText(last_competition.get(0).place);
-            last_competition_date.setText(last_competition.get(0).date);
+            last_competition_date.setText(Utils.toString(last_competition.get(0).date));
             last_competition_track.setText(last_competition.get(0).track);
             last_competition_result.setText(last_competition.get(0).result);
         }

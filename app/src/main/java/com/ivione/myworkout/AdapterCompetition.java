@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class AdapterCompetition extends RecyclerView.Adapter<AdapterCompetition.ViewHolderCompetitions> {
@@ -29,7 +31,7 @@ public class AdapterCompetition extends RecyclerView.Adapter<AdapterCompetition.
         holder.place.setText(listCompetitions.get(position).place);
         holder.track.setText(listCompetitions.get(position).track);
         holder.result.setText(listCompetitions.get(position).result);
-        holder.date.setText(listCompetitions.get(position).date);
+        holder.date.setText(Utils.toString(listCompetitions.get(position).date));
     }
 
     @Override
