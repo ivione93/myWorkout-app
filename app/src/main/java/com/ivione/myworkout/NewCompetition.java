@@ -12,6 +12,10 @@ import androidx.room.Room;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class NewCompetition extends AppCompatActivity {
 
     TextView textHead;
@@ -29,16 +33,8 @@ public class NewCompetition extends AppCompatActivity {
                 AppDatabase.class, "database-name").fallbackToDestructiveMigration().allowMainThreadQueries().build();
 
         license = getIntent().getStringExtra("license");
-        textHead = findViewById(R.id.textHead);
-        textHead.setText(textHead.getText().toString() + " (" + license + ")");
-        placeText = findViewById(R.id.placeText);
-        competitionNameText = findViewById(R.id.competitionNameText);
-        trackText = findViewById(R.id.trackText);
-        resultText = findViewById(R.id.resultText);
-        placeText = findViewById(R.id.placeText);
-        dateText = findViewById(R.id.dateText);
-        btnSave = findViewById(R.id.saveButton);
-        btnCancel = findViewById(R.id.cancelButton);
+
+        initReferences();
 
         btnSave.setOnClickListener(view -> {
             String place = placeText.getEditText().getText().toString();
@@ -51,7 +47,7 @@ public class NewCompetition extends AppCompatActivity {
                 Competition competition = new Competition(license,
                         placeText.getEditText().getText().toString(),
                         competitionNameText.getEditText().getText().toString(),
-                        dateText.getText().toString(),
+                        Utils.toDate(dateText.getText().toString()),
                         trackText.getEditText().getText().toString(),
                         resultText.getEditText().getText().toString());
                 db.competitionDao().insert(competition);
@@ -69,6 +65,19 @@ public class NewCompetition extends AppCompatActivity {
             finish();
         });
 
+    }
+
+    private void initReferences() {
+        textHead = findViewById(R.id.textHead);
+        textHead.setText(textHead.getText().toString() + " (" + license + ")");
+        placeText = findViewById(R.id.placeText);
+        competitionNameText = findViewById(R.id.competitionNameText);
+        trackText = findViewById(R.id.trackText);
+        resultText = findViewById(R.id.resultText);
+        placeText = findViewById(R.id.placeText);
+        dateText = findViewById(R.id.dateText);
+        btnSave = findViewById(R.id.saveButton);
+        btnCancel = findViewById(R.id.cancelButton);
     }
 
     private boolean validateNewCompetition(String place, String competitionName, String track, String result, String date) {

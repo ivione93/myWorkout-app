@@ -5,6 +5,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Date;
+
 @Entity
 public class Competition {
 
@@ -23,7 +25,7 @@ public class Competition {
     public String name;
 
     @ColumnInfo(name = "competition_date")
-    public String date;
+    public Date date;
 
     @ColumnInfo(name = "track")
     public String track;
@@ -31,7 +33,7 @@ public class Competition {
     @ColumnInfo(name = "result")
     public String result;
 
-    public Competition(String license, String place, String name, String date, String track, String result) {
+    public Competition(String license, String place, String name, Date date, String track, String result) {
         this.license = license;
         this.place = place;
         this.name = name;

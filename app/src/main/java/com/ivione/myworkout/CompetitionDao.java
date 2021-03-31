@@ -10,13 +10,10 @@ import java.util.List;
 @Dao
 public interface CompetitionDao {
 
-    @Query("SELECT * FROM competition")
-    List<Competition> getCompetitions();
-
-    @Query("SELECT * FROM competition WHERE license = :license")
+    @Query("SELECT * FROM competition WHERE license = :license ORDER BY competition_date DESC")
     List<Competition> getCompetitionsByLicense(String license);
 
-    @Query("SELECT * FROM competition WHERE license = :license ORDER BY competition_date")
+    @Query("SELECT * FROM competition WHERE license = :license ORDER BY competition_date DESC")
     List<Competition> getLatestCompetitionByLicense(String license);
 
     @Insert
