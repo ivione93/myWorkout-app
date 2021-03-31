@@ -16,6 +16,9 @@ public interface CompetitionDao {
     @Query("SELECT * FROM competition WHERE license = :license")
     List<Competition> getCompetitionsByLicense(String license);
 
+    @Query("SELECT * FROM competition WHERE license = :license ORDER BY competition_date")
+    List<Competition> getLatestCompetitionByLicense(String license);
+
     @Insert
     void insert(Competition competition);
 

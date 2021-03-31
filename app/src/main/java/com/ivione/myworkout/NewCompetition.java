@@ -57,6 +57,7 @@ public class NewCompetition extends AppCompatActivity {
                 db.competitionDao().insert(competition);
 
                 Intent intent = new Intent(this, ProfileActivity.class);
+                intent.putExtra("license", license);
                 startActivity(intent);
             } else {
                 Toast toast = Toast.makeText(getApplicationContext(), "Faltan campos por completar", Toast.LENGTH_LONG);

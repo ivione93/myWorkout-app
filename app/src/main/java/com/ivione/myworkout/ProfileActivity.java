@@ -20,12 +20,15 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ivione.myworkout.ui.login.LoginActivity;
 
+import java.util.List;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileActivity extends AppCompatActivity {
 
     CircleImageView photoProfile;
     TextView nameProfile, emailProfile, birthProfile, licenseProfile;
+    TextView last_competition_name, last_competition_place, last_competition_date, last_competition_track, last_competition_result;
     ImageButton btnSignOut;
     BottomNavigationView navigation_menu;
 
@@ -45,13 +48,9 @@ public class ProfileActivity extends AppCompatActivity {
 
         license = getIntent().getStringExtra("license");
 
-        photoProfile = findViewById(R.id.photoProfile);
-        nameProfile = findViewById(R.id.nameProfile);
-        emailProfile = findViewById(R.id.emailProfile);
-        birthProfile = findViewById(R.id.birthProfile);
-        licenseProfile = findViewById(R.id.licenseProfile);
-        btnSignOut = findViewById(R.id.btnSignOut);
-        navigation_menu = findViewById(R.id.navigation_menu);
+        initReferences();
+
+        getLastCompetition(db, license);
 
         btnSignOut.setOnClickListener(v -> signOut());
 
@@ -97,6 +96,35 @@ public class ProfileActivity extends AppCompatActivity {
             emailProfile.setText(account.getEmail());
             licenseProfile.setText(athlete.license);
             birthProfile.setText(athlete.birthdate);
+        }
+    }
+
+    private void initReferences() {
+        photoProfile = findViewById(R.id.photoProfile);
+        nameProfile = findViewById(R.id.nameProfile);
+        emailProfile = findViewById(R.id.emailProfile);
+        birthProfile = findViewById(R.id.birthProfile);
+        licenseProfile = findViewById(R.id.licenseProfile);
+        btnSignOut = findViewById(R.id.btnSignOut);
+        last_competition_name = findViewById(R.id.last_competition_name);
+        last_competition_place = findViewById(R.id.last_competition_place);
+        last_competition_date = findViewById(R.id.last_competition_date);
+        last_competition_track = findViewById(R.id.last_competition_track);
+        last_competition_result = findViewById(R.id.last_competition_result);
+        navigation_menu = findViewById(R.id.navigation_menu);
+    }
+
+    private void getLastCompetition(AppDatabase db, String license) {
+        List<Competition> last_competition = db.competitionDao().getLatestCompetitionByLicense(license);
+
+        if (last_competition.isEmpty()) {
+            last_competition_name.setText("No se han encontrado competiciones");
+        } else {
+            last_competition_name.setText(last_competition.get(0).name);
+            last_competition_place.setText(last_competition.get(0).place);
+            last_competition_date.setText(last_competition.get(0).date);
+            last_competition_track.setText(last_competition.get(0).track);
+            last_competition_result.setText(last_competition.get(0).result);
         }
     }
 
