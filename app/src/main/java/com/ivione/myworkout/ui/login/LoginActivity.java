@@ -23,7 +23,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.SignInButton;
 import com.ivione.myworkout.NewAthlete;
-import com.ivione.myworkout.ProfileActivity;
 import com.ivione.myworkout.R;
 
 import java.util.Objects;

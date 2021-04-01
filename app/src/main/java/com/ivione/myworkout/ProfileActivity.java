@@ -2,9 +2,7 @@ package com.ivione.myworkout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -54,7 +52,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         getLastCompetition(db, license);
 
-        btnSignOut.setOnClickListener(v -> signOut());
+        btnSignOut.setOnClickListener(v -> signOut() );
 
         navigation_menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -63,7 +61,9 @@ public class ProfileActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                 } else if (item.getItemId() == R.id.action_training) {
-
+                    Intent intent = new Intent(getApplicationContext(), ListTraining.class);
+                    intent.putExtra("license", license);
+                    startActivity(intent);
                 } else if (item.getItemId() == R.id.action_competitions) {
                     Intent intent = new Intent(getApplicationContext(), ListCompetitions.class);
                     intent.putExtra("license", license);
