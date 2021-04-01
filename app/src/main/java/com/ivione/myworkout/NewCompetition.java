@@ -29,6 +29,8 @@ public class NewCompetition extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_competition);
 
+        getSupportActionBar().setTitle("Nueva competición");
+
         AppDatabase db = Room.databaseBuilder(getApplicationContext(),
                 AppDatabase.class, "database-name").fallbackToDestructiveMigration().allowMainThreadQueries().build();
 

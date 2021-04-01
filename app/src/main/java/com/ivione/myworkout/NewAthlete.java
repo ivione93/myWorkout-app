@@ -33,6 +33,8 @@ public class NewAthlete extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_athlete);
 
+        getSupportActionBar().setTitle("Nuevo atleta");
+
         AppDatabase db = Room.databaseBuilder(getApplicationContext(),
                 AppDatabase.class, "database-name").fallbackToDestructiveMigration().allowMainThreadQueries().build();
 
