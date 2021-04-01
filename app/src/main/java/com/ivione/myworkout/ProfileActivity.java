@@ -43,6 +43,8 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        getSupportActionBar().setTitle("Perfil");
+
         db = Room.databaseBuilder(getApplicationContext(),
                 AppDatabase.class, "database-name").fallbackToDestructiveMigration().allowMainThreadQueries().build();
 
@@ -57,9 +59,11 @@ public class ProfileActivity extends AppCompatActivity {
         navigation_menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.action_training) {
+                if (item.getItemId() == R.id.action_athletes) {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
+                } else if (item.getItemId() == R.id.action_training) {
+
                 } else if (item.getItemId() == R.id.action_competitions) {
                     Intent intent = new Intent(getApplicationContext(), ListCompetitions.class);
                     intent.putExtra("license", license);
